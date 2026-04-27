@@ -1,0 +1,758 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fuente principal importada de Google Fonts (Inter) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body, html {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+
+/* ------------------------------------------------------------
+   2. CONTENEDOR GLOBAL
+   .w = "wrapper" — centra el contenido y limita el ancho
+   máximo en 1100px con padding lateral para móvil
+   ------------------------------------------------------------ */
+.w {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+
+/* ============================================================
+   3. NAVBAR
+   Barra de navegación fija en la parte superior
+   ============================================================ */
+nav {
+  background: #ffffff;
+  border-bottom: 1px solid #e8ede8;  /* línea sutil separadora */
+  position: sticky;                   /* se queda pegada al hacer scroll */
+  top: 0;
+  z-index: 100;                       /* siempre encima del resto */
+  padding: .9rem 0;
+}
+
+/* Fila interna del navbar: logo a la izquierda, links al centro, CTA a la derecha */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Bloque del logo: ícono + texto apilado */
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+/* Logo imagen directa — sin contenedor */
+.logo-img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Logo en footer ligeramente más grande */
+.footer-logo {
+  height: 90px;
+}
+
+/* Nombre y subtítulo de la universidad */
+.logo-text p:first-child {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1b4d2e;
+  letter-spacing: .02em;
+  line-height: 1.2;
+}
+
+.logo-text p:last-child {
+  font-size: 13px;
+  color: #6b7c6b;
+  letter-spacing: .04em;
+  line-height: 1.2;
+}
+
+/* Lista de links de navegación */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: #4a5a4a;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: .01em;
+  transition: color .2s;             /* transición suave al pasar el mouse */
+}
+
+.nav-links a:hover {
+  color: #1b4d2e;
+}
+
+/* Botón CTA del navbar */
+.nav-cta {
+  background: #1b4d2e;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: .55rem 1.1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s;
+}
+
+.nav-cta:hover {
+  background: #163d24;               /* verde más oscuro al hover */
+}
+
+
+/* ============================================================
+   4. HERO SECTION
+   Primera sección visible — dos columnas: texto | imagen
+   ============================================================ */
+.hero {
+  padding: 5rem 0 4rem;
+  /* Fondo con gradiente muy sutil de verde claro a blanco */
+  background: linear-gradient(160deg, #f4f8f2 0%, #ffffff 60%);
+}
+
+/* Grid de dos columnas iguales con espacio entre ellas */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Etiqueta pequeña encima del título (ej: "Facultad de...") */
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: #e8f4e8;               /* fondo verde muy claro */
+  color: #1b4d2e;
+  font-size: 12px;
+  font-weight: 500;
+  padding: .35rem .75rem;
+  border-radius: 20px;               /* forma de píldora */
+  margin-bottom: 1.5rem;
+  letter-spacing: .03em;
+}
+
+/* Punto decorativo verde dentro de la etiqueta */
+.hero-tag span.dot {
+  width: 6px;
+  height: 6px;
+  background: #3a8c4a;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Título principal grande */
+h1.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #0f2d1a;                    /* verde muy oscuro casi negro */
+  letter-spacing: -.02em;
+  margin-bottom: 1rem;
+}
+
+/* La palabra en verde dentro del título */
+h1.hero-title em {
+  font-style: normal;
+  color: #2d7a3a;                    /* verde medio */
+}
+
+/* Párrafo descriptivo debajo del título */
+.hero-sub {
+  font-size: 1.05rem;
+  color: #5a6e5a;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 440px;
+}
+
+/* Fila de botones CTA */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Botón primario (fondo verde sólido) */
+.btn-primary {
+  background: #1b4d2e;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: .75rem 1.5rem;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: background .2s;
+}
+
+.btn-primary:hover {
+  background: #163d24;
+}
+
+/* Botón secundario (solo borde, sin fondo) */
+.btn-outline {
+  background: transparent;
+  color: #1b4d2e;
+  font-size: 14px;
+  font-weight: 500;
+  padding: .75rem 1.5rem;
+  border-radius: 7px;
+  text-decoration: none;
+  border: 1.5px solid #c5dfc5;
+  transition: all .2s;
+}
+
+.btn-outline:hover {
+  border-color: #1b4d2e;
+  background: #f0f8f0;
+}
+
+/* Columna derecha del hero */
+.hero-visual {
+  position: relative;
+}
+
+/* Contenedor de la imagen/ilustración */
+.hero-img-wrap {
+  border-radius: 16px;
+  overflow: hidden;                  /* recorta el contenido al borde redondeado */
+  background: #d4e8d0;
+  aspect-ratio: 4 / 3;              /* proporción fija */
+  position: relative;
+}
+
+/* Imagen principal del hero */
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Badge flotante sobre la imagen ("5 años · Licenciatura") */
+.hero-badge {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: rgba(255, 255, 255, .95);
+  border-radius: 10px;
+  padding: .65rem 1rem;
+  font-size: 12px;
+  color: #1b4d2e;
+  font-weight: 600;
+  border: 1px solid #d0e8d0;
+}
+
+/* Fila de 3 estadísticas debajo de la imagen */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Cada tarjeta de estadística */
+.stat-item {
+  text-align: center;
+  padding: .75rem;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e8ede8;
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1b4d2e;
+  line-height: 1.1;
+}
+
+.stat-item span {
+  font-size: 11px;
+  color: #7a8a7a;
+  letter-spacing: .02em;
+}
+
+
+/* ============================================================
+   5. ABOUT SECTION
+   Bloque centrado con descripción de la carrera
+   ============================================================ */
+.about {
+  padding: 5rem 0;
+  background: #ffffff;
+}
+
+/* Etiqueta pequeña de sección (ej: "SOBRE LA CARRERA") */
+.section-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #3a8c4a;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+
+/* Contenedor centrado con ancho máximo */
+.about-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Título de sección reutilizable en varias secciones */
+h2.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f2d1a;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+
+/* Párrafos del about */
+.about p {
+  font-size: 1rem;
+  color: #5a6e5a;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Línea decorativa verde debajo del texto */
+.about-divider {
+  width: 48px;
+  height: 3px;
+  background: #2d7a3a;
+  border-radius: 2px;
+  margin: 2rem auto 0;
+}
+
+
+/* ============================================================
+   6. CAMPO LABORAL
+   Grid de tarjetas con áreas de desempeño profesional
+   ============================================================ */
+.campo {
+  padding: 5rem 0;
+  background: #f7faf5;               /* fondo verde muy claro para alternar */
+}
+
+/* Encabezado con título a la izquierda y botón a la derecha */
+.campo-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Grid de 4 columnas para las tarjetas */
+.campo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* Tarjeta individual de campo laboral */
+.campo-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0ebe0;
+  padding: 1.5rem 1.25rem;
+  transition: border-color .2s, transform .2s;
+}
+
+.campo-card:hover {
+  border-color: #3a8c4a;            /* borde verde al pasar el mouse */
+  transform: translateY(-2px);       /* leve elevación */
+}
+
+/* Cuadrado con ícono SVG en cada tarjeta */
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #e8f4e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.card-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Título de la tarjeta */
+.campo-card h3 {
+  font-size: .85rem;
+  font-weight: 600;
+  color: #0f2d1a;
+  margin-bottom: .5rem;
+  line-height: 1.3;
+}
+
+/* Descripción de la tarjeta */
+.campo-card p {
+  font-size: .8rem;
+  color: #7a8a7a;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   7. FORMACIÓN ACADÉMICA
+   Grid de 4 iconos con pilares de formación
+   ============================================================ */
+.formacion {
+  padding: 5rem 0;
+  background: #ffffff;
+}
+
+/* Grid de 4 ítems de formación */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* Ítem individual de formación */
+.form-item {
+  text-align: center;
+  padding: 2rem 1.25rem;
+  background: #f7faf5;
+  border-radius: 12px;
+  border: 1px solid #e8ede8;
+  transition: background .2s;
+}
+
+.form-item:hover {
+  background: #eef6ee;
+}
+
+/* Círculo con ícono centrado */
+.form-icon-wrap {
+  width: 56px;
+  height: 56px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  border: 1.5px solid #d0e8d0;
+}
+
+.form-icon-wrap img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+.form-item h3 {
+  font-size: .9rem;
+  font-weight: 600;
+  color: #1b4d2e;
+  margin-bottom: .4rem;
+}
+
+.form-item p {
+  font-size: .78rem;
+  color: #7a8a7a;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   8. EXPERIENCIA PRÁCTICA
+   Dos columnas: visitas técnicas | prácticas de laboratorio
+   ============================================================ */
+.experiencia {
+  padding: 5rem 0;
+  background: #f7faf5;
+}
+
+/* Grid de dos columnas iguales */
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+/* Contenedor imagen + card apilados */
+.exp-entry {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Imagen de evidencia — misma anchura que el card */
+.exp-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px 14px 0 0;
+  border: 1px solid #e0ebe0;
+  border-bottom: none;
+  background: #d4e8d0;
+}
+
+/* Card de información debajo de la imagen */
+.exp-col {
+  background: #ffffff;
+  border-radius: 0 0 14px 14px;
+  border: 1px solid #e0ebe0;
+  padding: 1.75rem 2rem;
+}
+
+.exp-col h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f2d1a;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e8ede8;
+}
+
+/* Lista de ítems sin estilo nativo */
+.exp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+/* Cada ítem de la lista */
+.exp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  font-size: .875rem;
+  color: #5a6e5a;
+  line-height: 1.6;
+}
+
+/* Punto verde decorativo (pseudo-bullet personalizado) */
+.exp-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #3a8c4a;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: .45rem;
+}
+
+
+/* ============================================================
+   9. SECCIÓN CTA FINAL
+   Fondo verde oscuro con llamada a la acción fuerte
+   ============================================================ */
+.final-cta {
+  padding: 5rem 0;
+  background: #1b4d2e;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Patrón de líneas diagonales muy sutil en el fondo */
+.cta-bg-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: .04;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 80L80 0M-20 20L20 -20M60 100L100 60' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* Contenido centrado sobre el patrón */
+.cta-inner {
+  text-align: center;
+  position: relative;        /* para quedar encima del patrón absoluto */
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Etiqueta verde claro */
+.cta-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #7ecb7e;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* Título grande blanco */
+h2.cta-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  letter-spacing: -.02em;
+}
+
+/* Subtítulo en verde claro */
+.cta-sub {
+  font-size: 1rem;
+  color: #a8cca8;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+/* Botón blanco sobre fondo verde */
+.btn-cta-white {
+  background: #ffffff;
+  color: #1b4d2e;
+  font-size: 14px;
+  font-weight: 600;
+  padding: .85rem 2rem;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: background .2s;
+}
+
+.btn-cta-white:hover {
+  background: #f0f8f0;
+}
+
+
+/* ============================================================
+   10. FOOTER
+   Fondo verde oscuro
+   ============================================================ */
+footer {
+  background: f4f8f2;               /* verde casi negro */
+  padding: 3.5rem 0 1.5rem;
+}
+
+/* Grid de tres columnas: marca (2fr) + 2 columnas iguales (1fr) */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-brand p {
+  font-size: .8rem;
+  color: #7a9a7a;
+  line-height: 1.7;
+  max-width: 220px;
+}
+
+/* Encabezado de cada columna del footer */
+.footer-col h4 {
+  font-size: .75rem;
+  font-weight: 600;
+  color: #6b726b;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* Lista de enlaces */
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.footer-col ul li a {
+  font-size: .8rem;
+  color: #7a9a7a;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.footer-col ul li a:hover {
+  color: #2a5a32;
+}
+
+/* Ítem de contacto — texto plano */
+.contact-item {
+  font-size: .78rem;
+  color: #7a9a7a;
+  line-height: 1.5;
+  margin-bottom: .5rem;
+}
+
+/* Barra inferior del footer */
+.footer-bottom {
+  border-top: 1px solid #1e3e28;
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  font-size: .75rem;
+  color: #4a6a4a;
+}
+
+/* Fila de íconos de redes sociales */
+.social-links {
+  display: flex;
+  gap: .75rem;
+}
+
+/* Cada botón de red social */
+.social-link {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #1e3e28;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  border-color: #3a8c4a;
+}
+
+.social-link img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  display: block;
+}
+

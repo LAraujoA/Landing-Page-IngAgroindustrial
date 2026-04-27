@@ -40,6 +40,12 @@
 
       <a href="https://admisiones.univo.edu.sv/" class="nav-cta">Solicitar información</a>
 
+      <button class="nav-hamburger" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
   </nav>
 
@@ -430,5 +436,13 @@
 
     </div>
   </footer>
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    navToggle.addEventListener('click', function () {
+      const nav = this.closest('nav');
+      const open = nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', open);
+    });
+  </script>
 </body>
 </html>

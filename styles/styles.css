@@ -756,3 +756,205 @@ footer {
   display: block;
 }
 
+
+/* ============================================================
+   HAMBURGER BUTTON — visible solo en móvil
+   ============================================================ */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .4rem;
+  flex-shrink: 0;
+  order: 1;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #1b4d2e;
+  border-radius: 2px;
+  transition: transform .25s, opacity .25s;
+}
+
+/* Animación a X cuando el menú está abierto */
+nav.open .nav-hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+nav.open .nav-hamburger span:nth-child(2) {
+  opacity: 0;
+}
+nav.open .nav-hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ============================================================
+   TABLET — ≤ 960px
+   ============================================================ */
+@media (max-width: 960px) {
+
+  .logo-img    { height: 64px; }
+  .footer-logo { height: 72px; }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-sub {
+    max-width: 100%;
+  }
+
+  .campo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* ============================================================
+   MÓVIL — ≤ 768px
+   ============================================================ */
+@media (max-width: 768px) {
+
+  body { overflow-x: hidden; }
+
+  /* --- Navbar --- */
+  .nav-hamburger { display: flex; }
+
+  .nav-inner {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+
+  .logo-block {
+    flex: 1;
+    order: 0;
+  }
+
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  nav.open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    order: 10;
+    padding: .5rem 0 .5rem;
+    border-top: 1px solid #e8ede8;
+    margin-top: .75rem;
+  }
+
+  nav.open .nav-links li {
+    width: 100%;
+  }
+
+  nav.open .nav-links a {
+    font-size: 15px;
+    display: block;
+    padding: .7rem 0;
+    border-bottom: 1px solid #f0f4f0;
+  }
+
+  nav.open .nav-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: .75rem;
+    padding: .75rem 1.5rem;
+    order: 11;
+  }
+
+  /* --- Tipografía --- */
+  h1.hero-title    { font-size: 2rem; }
+  h2.section-title { font-size: 1.65rem; }
+  h2.cta-title     { font-size: 1.75rem; }
+
+  /* --- Hero --- */
+  .hero { padding: 3rem 0 2.5rem; }
+
+  /* --- Campo --- */
+  .campo-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* --- Experiencia --- */
+  .exp-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* --- Footer --- */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand { grid-column: auto; }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* ============================================================
+   MÓVIL PEQUEÑO — ≤ 480px
+   ============================================================ */
+@media (max-width: 480px) {
+
+  .w {
+    padding: 0 1.25rem;
+  }
+
+  .logo-img    { height: 52px; }
+  .footer-logo { height: 60px; }
+
+  h1.hero-title { font-size: 1.75rem; }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    text-align: center;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .campo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

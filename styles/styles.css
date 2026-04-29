@@ -989,3 +989,77 @@ nav.open .nav-hamburger span:nth-child(3) {
   }
 }
 
+/* ============================================================
+   EFECTO HOVER EN LINKS DEL MENÚ DE NAVEGACIÓN
+   ============================================================ */
+
+.nav-links a {
+  position: relative;
+  padding: .35rem 0;
+  transition: color .25s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #1b4d2e;
+  border-radius: 10px;
+  transition: width .25s ease;
+}
+
+.nav-links a:hover {
+  color: #1b4d2e;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+/* ============================================================
+   SCROLL SUAVE AL HACER CLICK EN EL MENÚ
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Evita que el navbar tape el inicio de cada sección */
+#inicio,
+#pensum,
+#perfil-egreso,
+#laboratorios-practicos {
+  scroll-margin-top: 110px;
+}
+
+/* ============================================================
+   EFECTO HOVER EN LINKS DEL MENÚ
+   ============================================================ */
+
+.nav-links a {
+  position: relative;
+  padding: .35rem 0;
+  transition: color .25s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #1b4d2e;
+  border-radius: 10px;
+  transition: width .25s ease;
+}
+
+.nav-links a:hover {
+  color: #1b4d2e;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}

@@ -431,7 +431,38 @@ h2.section-title {
 
 
 /* ============================================================
-   7. FORMACIÓN ACADÉMICA
+   7. PENSUM DE LA CARRERA
+   Sección con iframe responsivo del plan de estudios
+   ============================================================ */
+.pensum {
+  padding: 5rem 0;
+  background: #ffffff;
+}
+
+/* Contenedor responsivo que mantiene proporción 16:9 */
+.pensum-iframe-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e0ebe0;
+  box-shadow: 0 4px 24px rgba(27, 77, 46, .08);
+}
+
+.pensum-iframe-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+
+/* ============================================================
+   8. FORMACIÓN ACADÉMICA
    Grid de 4 iconos con pilares de formación
    ============================================================ */
 .formacion {
